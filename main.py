@@ -1,1 +1,1 @@
-print("My Pycharm is installed succesfully")
+print("Hello, World!")
