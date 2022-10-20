@@ -1,13 +1,13 @@
 '''
 Python interactive summary of "Recursive functions" theme,
-course 'Добрый, добрый Python' by Sergey Balakirev.
+course of study 'Добрый, добрый Python' by Sergey Balakirev.
 
 Examples and tasks.
 
 Интерактивный Python конспект темы 'Рекурсивные функции',
 курса 'Добрый, добрый Python', от Сергея Балакирева.
 
-Примерыи задачи.
+Примеры и задачи.
 
 https://stepik.org/lesson/567058/
 '''
@@ -20,6 +20,9 @@ def recursive(value):
     пример работы рекурсивной функции
 
     https://youtu.be/dtzoBXL11oo?t=36 (with timecode,  с привязкой ко времени)
+
+    полный конспект темы:
+    https://github.com/yeralexey/Temp/blob/master/stepik.org/recursion.py
     '''
     print(value)           # выводим значение на выходе из рекурсии
     if value < 4:          # условие продолжения рекурсии
@@ -31,9 +34,12 @@ def fact(n):
     '''
     counting factorial with recursive function
 
-    вычисление факториала рекуурсивной функцией
+    вычисление факториала рекурсивной функцией
 
     https://youtu.be/dtzoBXL11oo?t=345 (with timecode,  с привязкой ко времени)
+
+    полный конспект темы:
+    https://github.com/yeralexey/Temp/blob/master/stepik.org/recursion.py
     '''
     if n<=0:               # определяем условие выхода из рекурсии
         return 1           # выход из рекурсии
@@ -65,6 +71,9 @@ def get_files(path, depth=0):  # получаем путь, в нашем слу
     задан в переменной "F" перед самой функцией
 
     https://youtu.be/dtzoBXL11oo?t=558 (with timecode,  с привязкой ко времени)
+
+    полный конспект темы:
+    https://github.com/yeralexey/Temp/blob/master/stepik.org/recursion.py
     '''
     for f in path:                            # для каждого элемента словаря
         print(" " * depth, f)                 # выводим значение со стартовым кол-вом пробелов (корневой каталог)
@@ -81,6 +90,9 @@ def get_rec_N(N):
     вывести числа от единицы до N рекурсивной функцией
 
     https://stepik.org/lesson/567058/step/3
+
+    полный конспект темы:
+    https://github.com/yeralexey/Temp/blob/master/stepik.org/recursion.py
     '''
     if N > 0:              # задаем условие продолжения рекурсии
         get_rec_N(N - 1)   # запускаем рекурсивно с уменьшением значения
@@ -90,9 +102,9 @@ def get_rec_N(N):
 #---------------------------------------------------------------
 
 '''
-Uncommented and run with, works with "help" also, ex.: help(get_files)
+Uncommented and run, works with "help" also, ex.: help(get_files)
 
-Раскомментируйте и запускайте, работет запуск с "help", прим.: help(get_files)
+Раскомментируйте и запускайте, работает запуск с "help", прим.: help(get_files)
 '''
 
 
