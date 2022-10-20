@@ -108,35 +108,59 @@ def get_rec_sum(inpt, total):
     else:
         return total                       # возвращаем результат
 
+
+def fib_rec(N, f=[1, 1]): # ключевым параметром задаем первые два элемента последовательности
+    '''
+        create Fibonacci sequence, wint total values limited by input number
+    сформировать последовательность Фиббоначи, количество значений в которой
+    лимитировано вводимым натруральным числом
+    https://stepik.org/lesson/567058/step/5
+
+    полный конспект темы:
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
+    '''
+    if len(f) < N:                     # если длинна списка меньше ограничивающего числа
+        f.append(f[-1] + f[-2])        # добавляем к списку последовательности сумму двух последних элeментов
+        return fib_rec(N, f = f)       # рекурсивно запускаем функцию
+    else:
+        return f
+
 #---------------------------------------------------------------
 
 '''
-Uncommented and run, works with "help" also, ex.: help(get_files)
+Uncommented needed and run, works with "help" also, ex.: help(get_files)
 
-Раскомментируйте и запускайте, работает запуск с "help", прим.: help(get_files)
+Раскомментируйте нужное и запускайте, работает запуск с "help", прим.: help(get_files)
 '''
 
 # # # --- Пример 1
 # recursive(1)                            # вызов функции
 # help(recursive)                         # вывод описания функции
-
+#
 # # # --- Пример 2
 # print(fact(6))                          # вывод результата функции
 # help(fact)                              # вывод описания функции
-
+#
 # # # --- Пример 3
 # get_files(F)                            # вызов функции
 # help(get_files)                         # вывод описания функции
-
+#
+#
 # # # --- Задача 1
 # #N = int(input())                              # ввод с клавиатуры
 # N = 8                                          # ввод тестового значения
 # get_rec_N(N)                                   # вызов функции
 # help(get_rec_N)                                # вывод описания функции
-
+#
 # # #--- Задача 2
 # #inpt = input()                                # ввод с клавиатуры
 # inpt = '8 11 -5 4 3'                           # ввод тестового значения
 # inpt = iter([i for i in inpt.split()]+[1])     # преобразование в итератор
 # print(get_rec_sum(inpt, 0))                    # вывод результата функции
 # help(get_rec_sum)                              # вывод описания функции
+#
+# # #--- Задача 4
+# #N = int(input())                              # ввод с клавиатуры
+# N = 14                                         # ввод тестового значения
+# print(fib_rec(N))                              # вывод результата функции
+# help(fib_rec)                                  # вывод описания функции
