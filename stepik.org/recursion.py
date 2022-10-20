@@ -109,14 +109,14 @@ Uncommented and run, works with "help" also, ex.: help(get_files)
 
 
 #recursive(1)
-# help(recursive)
+ #help(recursive)
 
 #print(fact(6))
-# help(fact)
+ #help(fact)
 
 #get_files(F)
-# help(get_files)
+ #help(get_files)
 
 #get_rec_N(5)
-# help(get_rec_N)
+ #help(get_rec_N)
 
