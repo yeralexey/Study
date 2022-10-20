@@ -111,7 +111,7 @@ def get_rec_sum(inpt, total):
 
 def fib_rec(N, f=[1, 1]):  # ключевым параметром задаем первые два элемента последовательности
     '''
-        create Fibonacci sequence, wint total values limited by input number
+        create Fibonacci sequence, with total values, limited by input number
     сформировать последовательность Фиббоначи, количество значений в которой
     лимитировано вводимым натруральным числом
     https://stepik.org/lesson/567058/step/5
@@ -147,7 +147,7 @@ d = [1, 2, [True, False], ["Москва", "Уфа", [100, 101], ['True', [-2, -
 
 def get_line_list(d, a=[]):
     '''
-        create one demention list from multidementional, given in "d"
+        create one demention list from multidementional, given in "d" with recursive function
     рекурсивной функцей создать одномерный список из значений элементов списка "d", задан
     перед этой функцией
     https://stepik.org/lesson/567058/step/7
@@ -163,6 +163,21 @@ def get_line_list(d, a=[]):
     return a                                 # вернуть результат
 
 
+def get_path(N, t=0):
+    '''
+        cout amount of steps to get to "N" with recursive function, if possible
+        steps are 1 and 2
+    "Лягушка прыгает вперед и может скакнуть либо на одно деление, либо сразу на два.
+    Наша задача определить количество вариантов маршрутов, которыми лягушка может достичь
+    риски под номером "N" (натуральное число N вводится с клавиатуры)."
+    https://stepik.org/lesson/567058/step/8
+
+    полный конспект темы:
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
+    '''
+    return N
+
+
 # ---------------------------------------------------------------
 
 
@@ -172,44 +187,50 @@ Uncomment needed and run, works with "help" also, ex.: help(get_files)
 Раскомментируйте нужное и запускайте, работает запуск с "help", прим.: help(get_files)
 '''
 
-# # --- Пример 1
-recursive(1)                            # вызов функции
-help(recursive)                         # вывод описания функции
-
-# # --- Пример 2
-print(fact(6))                          # вывод результата функции
-help(fact)                              # вывод описания функции
-
-# # --- Пример 3
-get_files(F)                            # вызов функции
-help(get_files)                         # вывод описания функции
-
-
-# # --- Задача 1
-# N = int(input())                             # ввод с клавиатуры
-N = 8                                          # ввод тестового значения
-get_rec_N(N)                                   # вызов функции
-help(get_rec_N)                                # вывод описания функции
-
-# #--- Задача 2
-# inpt = input()                               # ввод с клавиатуры
-inpt = '8 11 -5 4 3'                           # ввод тестового значения
-inpt = iter([i for i in inpt.split()]+[1])     # преобразование в итератор
-print(get_rec_sum(inpt, 0))                    # вывод результата функции
-help(get_rec_sum)                              # вывод описания функции
-
-# #--- Задача 3
-# N = int(input())                             # ввод с клавиатуры
+# # # --- Пример 1
+# recursive(1)                            # вызов функции
+# help(recursive)                         # вывод описания функции
+#
+# # # --- Пример 2
+# print(fact(6))                          # вывод результата функции
+# help(fact)                              # вывод описания функции
+#
+# # # --- Пример 3
+# get_files(F)                            # вызов функции
+# help(get_files)                         # вывод описания функции
+#
+#
+# # # --- Задача 1
+# # N = int(input())                             # ввод с клавиатуры
+# N = 8                                          # ввод тестового значения
+# get_rec_N(N)                                   # вызов функции
+# help(get_rec_N)                                # вывод описания функции
+#
+# # #--- Задача 2
+# # inpt = input()                               # ввод с клавиатуры
+# inpt = '8 11 -5 4 3'                           # ввод тестового значения
+# inpt = iter([i for i in inpt.split()]+[1])     # преобразование в итератор
+# print(get_rec_sum(inpt, 0))                    # вывод результата функции
+# help(get_rec_sum)                              # вывод описания функции
+#
+# # #--- Задача 3
+# # N = int(input())                             # ввод с клавиатуры
+# N = 14                                         # ввод тестового значения
+# print(fib_rec(N))                              # вывод результата функции
+# help(fib_rec)                                  # вывод описания функции
+#
+# # # --- Задача 4
+# # n = int(input())                             # ввод с клавиатуры
+# n = 11                                         # ввод тестового значения
+# print(fact_rec(n))                             # вывод результата функции
+# help(fact_rec)                                 # вывод описания функции
+#
+# # # --- Задача 5
+# print(get_line_list(d))                        # вывод результата функции
+# help(get_line_list)                            # вывод описания функции
+#
+# # # --- Задача 6
+# # N = int(input())                             # ввод с клавиатуры
 N = 14                                         # ввод тестового значения
-print(fib_rec(N))                              # вывод результата функции
-help(fib_rec)                                  # вывод описания функции
-
-# # --- Задача 4
-# n = int(input())                             # ввод с клавиатуры
-n = 11                                         # ввод тестового значения
-print(fact_rec(n))                             # вывод результата функции
-help(fact_rec)                                 # вывод описания функции
-
-# # --- Задача 5
-print(get_line_list(d))                        # вывод результата функции
-help(get_line_list)                            # вывод описания функции
+print(get_path(N, t=0))                        # вывод результата функции
+# help(get_path)                                 # вывод описания функции
