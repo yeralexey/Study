@@ -101,12 +101,12 @@ def get_rec_sum(inpt, total):
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
     '''
-    num = next(inpt)
-    if num != 1:
-        total = total + int(num)
-        return get_rec_sum(inpt, total)
+    num = next(inpt)                       # следующее значение из итератора
+    if num != 1:                           # при условии что это не int(1), остальные str
+        total = total + int(num)           # добавляем к результату значение
+        return get_rec_sum(inpt, total)    # запускем рекурсию
     else:
-        return total
+        return total                       # возвращаем результат
 
 #---------------------------------------------------------------
 
