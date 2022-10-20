@@ -22,7 +22,7 @@ def recursive(value):
     https://youtu.be/dtzoBXL11oo?t=36 (with timecode,  с привязкой ко времени)
 
     полный конспект темы:
-    https://github.com/yeralexey/Temp/blob/master/stepik.org/recursion.py
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
     '''
     print(value)           # выводим значение на выходе из рекурсии
     if value < 4:          # условие продолжения рекурсии
@@ -39,7 +39,7 @@ def fact(n):
     https://youtu.be/dtzoBXL11oo?t=345 (with timecode,  с привязкой ко времени)
 
     полный конспект темы:
-    https://github.com/yeralexey/Temp/blob/master/stepik.org/recursion.py
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
     '''
     if n<=0:               # определяем условие выхода из рекурсии
         return 1           # выход из рекурсии
@@ -73,7 +73,7 @@ def get_files(path, depth=0):  # получаем путь, в нашем слу
     https://youtu.be/dtzoBXL11oo?t=558 (with timecode,  с привязкой ко времени)
 
     полный конспект темы:
-    https://github.com/yeralexey/Temp/blob/master/stepik.org/recursion.py
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
     '''
     for f in path:                            # для каждого элемента словаря
         print(" " * depth, f)                 # выводим значение со стартовым кол-вом пробелов (корневой каталог)
@@ -92,7 +92,7 @@ def get_rec_N(N):
     https://stepik.org/lesson/567058/step/3
 
     полный конспект темы:
-    https://github.com/yeralexey/Temp/blob/master/stepik.org/recursion.py
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
     '''
     if N > 0:              # задаем условие продолжения рекурсии
         get_rec_N(N - 1)   # запускаем рекурсивно с уменьшением значения
