@@ -167,7 +167,7 @@ def get_line_list(d, a=[]):
 
 
 '''
-Uncommented needed and run, works with "help" also, ex.: help(get_files)
+Uncomment needed and run, works with "help" also, ex.: help(get_files)
 
 Раскомментируйте нужное и запускайте, работает запуск с "help", прим.: help(get_files)
 '''
