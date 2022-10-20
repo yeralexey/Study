@@ -1,24 +1,23 @@
 '''
-Python interactive summary of "Recursive functions" theme,
-course of study 'Добрый, добрый Python' by Sergey Balakirev.
-
-Examples and tasks.
-
+    Python interactive summary of "Recursive functions" theme,
+    course of study 'Добрый, добрый Python' by Sergey Balakirev.
+    Examples and tasks.
 Интерактивный Python конспект темы 'Рекурсивные функции',
 курса 'Добрый, добрый Python', от Сергея Балакирева.
-
 Примеры и задачи.
 
 https://stepik.org/lesson/567058/
+
+N.B. Нижеприведенные функции написаны в процессе и для обучения,
+лично автором конспекта. Они проходят испытания на 20.10.2022, при
+этом могут быть не оптимальными(идеальными) с точки зрения логики алгоритмов.
 '''
 
 
 def recursive(value):
     '''
-    example of the way recursive funtion works
-
+        example of the way recursive funtion works
     пример работы рекурсивной функции
-
     https://youtu.be/dtzoBXL11oo?t=36 (with timecode,  с привязкой ко времени)
 
     полный конспект темы:
@@ -32,17 +31,15 @@ def recursive(value):
 
 def fact(n):
     '''
-    counting factorial with recursive function
-
+        counting factorial with recursive function
     вычисление факториала рекурсивной функцией
-
     https://youtu.be/dtzoBXL11oo?t=345 (with timecode,  с привязкой ко времени)
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
     '''
     if n<=0:               # определяем условие выхода из рекурсии
-        return 1           # выход из рекурсии
+        return 1           # выход из функции
     else:
         return n*fact(n-1) # рекурсивно запускаем подсчет
 
@@ -64,12 +61,10 @@ F = {
 def get_files(path, depth=0):  # получаем путь, в нашем случае - словарь, ключевым параметром задано
                                # количество пробелов при отображении глубины вложенности
     '''
-    creatitng and print file tree with recursive function,
-    tree is set by dictionary, named "F", before this function
-
+        creatitng and print file tree with recursive function,
+        tree is set by dictionary, named "F", before this function
     создание и вывод дерева файлов рекурсивной функцией, пример дерева
     задан в переменной "F" перед самой функцией
-
     https://youtu.be/dtzoBXL11oo?t=558 (with timecode,  с привязкой ко времени)
 
     полный конспект темы:
@@ -85,10 +80,8 @@ def get_files(path, depth=0):  # получаем путь, в нашем слу
 
 def get_rec_N(N):
     '''
-    print numbers from one to N with recursive function
-
+        print numbers from one to N with recursive function
     вывести числа от единицы до N рекурсивной функцией
-
     https://stepik.org/lesson/567058/step/3
 
     полный конспект темы:
@@ -99,6 +92,22 @@ def get_rec_N(N):
         print(N)           # выводим значение, углубляясь в рекурсию
 
 
+def get_rec_sum(inpt, total):
+    '''
+        count inputed with string numbers with recursive function, print after
+    сосчитать рекурсивной функцией сумму введенных строкой чисел, после вывести
+    https://stepik.org/lesson/567058/step/4
+
+    полный конспект темы:
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
+    '''
+    num = next(inpt)
+    if num != 1:
+        total = total + int(num)
+        return get_rec_sum(inpt, total)
+    else:
+        return total
+
 #---------------------------------------------------------------
 
 '''
@@ -107,16 +116,27 @@ Uncommented and run, works with "help" also, ex.: help(get_files)
 Раскомментируйте и запускайте, работает запуск с "help", прим.: help(get_files)
 '''
 
+# # # --- Пример 1
+# recursive(1)                            # вызов функции
+# help(recursive)                         # вывод описания функции
 
-#recursive(1)
- #help(recursive)
+# # # --- Пример 2
+# print(fact(6))                          # вывод результата функции
+# help(fact)                              # вывод описания функции
 
-#print(fact(6))
- #help(fact)
+# # # --- Пример 3
+# get_files(F)                            # вызов функции
+# help(get_files)                         # вывод описания функции
 
-#get_files(F)
- #help(get_files)
+# # # --- Задача 1
+# #N = int(input())                              # ввод с клавиатуры
+# N = 8                                          # ввод тестового значения
+# get_rec_N(N)                                   # вызов функции
+# help(get_rec_N)                                # вывод описания функции
 
-#get_rec_N(5)
- #help(get_rec_N)
-
+# # #--- Задача 2
+# #inpt = input()                                # ввод с клавиатуры
+# inpt = '8 11 -5 4 3'                           # ввод тестового значения
+# inpt = iter([i for i in inpt.split()]+[1])     # преобразование в итератор
+# print(get_rec_sum(inpt, 0))                    # вывод результата функции
+# help(get_rec_sum)                              # вывод описания функции
