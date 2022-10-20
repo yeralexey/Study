@@ -1,9 +1,9 @@
 '''
     Python interactive summary of "Recursive functions" theme,
-    course of study 'Добрый, добрый Python' by Sergey Balakirev.
+    course of study "Добрый, добрый Python" by Sergey Balakirev.
     Examples and tasks.
-Интерактивный Python конспект темы 'Рекурсивные функции',
-курса 'Добрый, добрый Python', от Сергея Балакирева.
+Интерактивный Python конспект темы "Рекурсивные функции",
+курса "Добрый, добрый Python", от Сергея Балакирева.
 Примеры и задачи.
 
 https://stepik.org/lesson/567058/
@@ -39,9 +39,9 @@ def fact(n):
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
     '''
     if n <= 0:               # определяем условие выхода из рекурсии
-        return 1           # выход из функции
+        return 1             # выход из функции
     else:
-        return n*fact(n-1)  # рекурсивно запускаем подсчет
+        return n*fact(n-1)   # рекурсивно запускаем подсчет
 
 
 F = {
@@ -80,8 +80,8 @@ def get_files(path, depth=0):  # получаем путь, в нашем слу
 
 def get_rec_N(N):
     '''
-        print numbers from one to N with recursive function
-    вывести числа от единицы до N рекурсивной функцией
+        print numbers from one to "N" with recursive function
+    вывести числа от единицы до "N" рекурсивной функцией
     https://stepik.org/lesson/567058/step/3
 
     полный конспект темы:
@@ -121,9 +121,47 @@ def fib_rec(N, f=[1, 1]):  # ключевым параметром задаем 
     '''
     if len(f) < N:                     # если длинна списка меньше ограничивающего числа
         f.append(f[-1] + f[-2])        # добавляем к списку последовательности сумму двух последних элeментов
-        return fib_rec(N, f=f)       # рекурсивно запускаем функцию
+        return fib_rec(N, f=f)         # рекурсивно запускаем функцию
     else:
         return f
+
+
+def fact_rec(n):
+    '''
+        counting factorial with recursive function
+    вычисление факториала рекурсивной функцией
+    https://youtu.be/dtzoBXL11oo?t=345 (with timecode,  с привязкой ко времени)
+    https://stepik.org/lesson/567058/step/6
+
+    полный конспект темы:
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
+    '''
+    if n <= 0:                  # определяем условие выхода из рекурсии
+        return 1                # выход из функции
+    else:
+        return n*fact_rec(n-1)  # рекурсивно запускаем подсчет
+
+
+d = [1, 2, [True, False], ["Москва", "Уфа", [100, 101], ['True', [-2, -1]]], 7.89]
+
+
+def get_line_list(d, a=[]):
+    '''
+        create one demention list from multidementional, given in "d"
+    рекурсивной функцей создать одномерный список из значений элементов списка "d", задан
+    перед этой функцией
+    https://stepik.org/lesson/567058/step/7
+
+    полный конспект темы:
+    https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
+    '''
+    for item in d:                           # для каждого элемента в листе d
+        if type(item) is list:               # если тип элемента - лист
+            get_line_list(d[d.index(item)])  # рекурсивно запускаем эту функцию, передавая его индекс
+        else:
+            a.append(item)                   # если не лист - добавить в одномерный список
+    return a                                 # вернуть результат
+
 
 # ---------------------------------------------------------------
 
@@ -148,20 +186,30 @@ help(get_files)                         # вывод описания функц
 
 
 # # --- Задача 1
-# N = int(input())                              # ввод с клавиатуры
+# N = int(input())                             # ввод с клавиатуры
 N = 8                                          # ввод тестового значения
 get_rec_N(N)                                   # вызов функции
 help(get_rec_N)                                # вывод описания функции
 
 # #--- Задача 2
-# inpt = input()                                # ввод с клавиатуры
+# inpt = input()                               # ввод с клавиатуры
 inpt = '8 11 -5 4 3'                           # ввод тестового значения
 inpt = iter([i for i in inpt.split()]+[1])     # преобразование в итератор
 print(get_rec_sum(inpt, 0))                    # вывод результата функции
 help(get_rec_sum)                              # вывод описания функции
 
 # #--- Задача 3
-# N = int(input())                              # ввод с клавиатуры
+# N = int(input())                             # ввод с клавиатуры
 N = 14                                         # ввод тестового значения
 print(fib_rec(N))                              # вывод результата функции
 help(fib_rec)                                  # вывод описания функции
+
+# # --- Задача 4
+# n = int(input())                             # ввод с клавиатуры
+n = 11                                         # ввод тестового значения
+print(fact_rec(n))                             # вывод результата функции
+help(fact_rec)                                 # вывод описания функции
+
+# # --- Задача 5
+print(get_line_list(d))                        # вывод результата функции
+help(get_line_list)                            # вывод описания функции
