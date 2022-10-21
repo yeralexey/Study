@@ -1,4 +1,4 @@
-'''
+"""
     Python interactive summary of "Recursive functions" theme,
     course of study "Добрый, добрый Python" by Sergey Balakirev.
     Examples and tasks.
@@ -11,18 +11,18 @@ https://stepik.org/lesson/567058/
 N.B. Нижеприведенные функции написаны в процессе и для обучения,
 лично автором конспекта. Они проходят испытания на 20.10.2022, при
 этом могут быть не оптимальными(идеальными) с точки зрения логики алгоритмов.
-'''
+"""
 
 
 def recursive(value):
-    '''
+    """
         example of the way recursive funtion works
     пример работы рекурсивной функции
     https://youtu.be/dtzoBXL11oo?t=36 (with timecode,  с привязкой ко времени)
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     print(value)            # выводим значение на выходе из рекурсии
     if value < 4:           # условие продолжения рекурсии
         recursive(value+1)  # рекурсивно запускаем с увеличением значения
@@ -30,14 +30,14 @@ def recursive(value):
 
 
 def fact(n):
-    '''
+    """
         counting factorial with recursive function
     вычисление факториала рекурсивной функцией
     https://youtu.be/dtzoBXL11oo?t=345 (with timecode,  с привязкой ко времени)
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     if n <= 0:               # определяем условие выхода из рекурсии
         return 1             # выход из функции
     else:
@@ -60,7 +60,7 @@ F = {
 
 def get_files(path, depth=0):  # получаем путь, в нашем случае - словарь, ключевым параметром задано
                                # количество пробелов при отображении глубины вложенности
-    '''
+    """
         creatitng and print file tree with recursive function,
         tree is set by dictionary, named "F", before this function
     создание и вывод дерева файлов рекурсивной функцией, пример дерева
@@ -69,7 +69,7 @@ def get_files(path, depth=0):  # получаем путь, в нашем слу
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     for f in path:                            # для каждого элемента словаря
         print(" " * depth, f)                 # выводим значение со стартовым кол-вом пробелов (корневой каталог)
         if type(path[f]) is dict:             # если тип элемента - словарь
@@ -79,28 +79,28 @@ def get_files(path, depth=0):  # получаем путь, в нашем слу
 
 
 def get_rec_N(N):
-    '''
+    """
         print numbers from one to "N" with recursive function
     вывести числа от единицы до "N" рекурсивной функцией
     https://stepik.org/lesson/567058/step/3
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     if N > 0:              # задаем условие продолжения рекурсии
         get_rec_N(N - 1)   # запускаем рекурсивно с уменьшением значения
         print(N)           # выводим значение, углубляясь в рекурсию
 
 
 def get_rec_sum(inpt, total):
-    '''
+    """
         count inputed with string numbers with recursive function, print after
     сосчитать рекурсивной функцией сумму введенных строкой чисел, после вывести
     https://stepik.org/lesson/567058/step/4
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     num = next(inpt)                       # следующее значение из итератора
     if num != 1:                           # при условии что это не int(1), остальные str
         total = total + int(num)           # добавляем к результату значение
@@ -110,7 +110,7 @@ def get_rec_sum(inpt, total):
 
 
 def fib_rec(N, f=[1, 1]):  # ключевым параметром задаем первые два элемента последовательности
-    '''
+    """
         create Fibonacci sequence, with total values, limited by input number
     сформировать последовательность Фибоначчи, количество значений в которой
     лимитировано вводимым натруральным числом
@@ -118,7 +118,7 @@ def fib_rec(N, f=[1, 1]):  # ключевым параметром задаем 
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     if len(f) < N:                     # если длинна списка меньше ограничивающего числа
         f.append(f[-1] + f[-2])        # добавляем к списку последовательности сумму двух последних элeментов
         return fib_rec(N, f=f)         # рекурсивно запускаем функцию
@@ -127,7 +127,7 @@ def fib_rec(N, f=[1, 1]):  # ключевым параметром задаем 
 
 
 def fact_rec(n):
-    '''
+    """
         counting factorial with recursive function
     вычисление факториала рекурсивной функцией
     https://youtu.be/dtzoBXL11oo?t=345 (with timecode,  с привязкой ко времени)
@@ -135,7 +135,7 @@ def fact_rec(n):
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     if n <= 0:                  # определяем условие выхода из рекурсии
         return 1                # выход из функции
     else:
@@ -146,7 +146,7 @@ d = [1, 2, [True, False], ["Москва", "Уфа", [100, 101], ['True', [-2, -
 
 
 def get_line_list(d, a=[]):
-    '''
+    """
         create one demention list from multidementional, given in "d" with recursive function
     рекурсивной функцей создать одномерный список из значений элементов списка "d", задан
     перед этой функцией
@@ -154,7 +154,7 @@ def get_line_list(d, a=[]):
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     for item in d:                           # для каждого элемента в листе d
         if type(item) is list:               # если тип элемента - лист
             get_line_list(d[d.index(item)])  # рекурсивно запускаем эту функцию, передавая его индекс
@@ -163,8 +163,8 @@ def get_line_list(d, a=[]):
     return a                                 # вернуть результат
 
 
-def get_path(N, f=[1, 2]): # ключевым параметром задаем значения первых двух элементов
-    '''
+def get_path(N, f=[1, 2]):  # ключевым параметром задаем значения первых двух элементов
+    """
         cout amount of steps to get to "N" with recursive function, if possible
         steps are 1 and 2
     "Лягушка прыгает вперед и может скакнуть либо на одно деление, либо сразу на два.
@@ -174,7 +174,7 @@ def get_path(N, f=[1, 2]): # ключевым параметром задаем 
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     if len(f) < N:                     # лягушка не прыгает дальше риски N
         f.append(f[-1] + f[-2])        # добавляем к начальному списку сумму двух последних элeментов
         return get_path(N, f=f)        # рекурсивно запускаем функцию подсчета прыжков
@@ -183,14 +183,14 @@ def get_path(N, f=[1, 2]): # ключевым параметром задаем 
 
 
 def sort_merg(lst):
-    '''
+    """
         implement merge sorting with recursive function
     реализовать сортировку слиянием через рекурсивную функцию
     https://stepik.org/lesson/567058/step/10
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/stepik.org/recursion.py
-    '''
+    """
     if len(lst) == 1:                            # условие выхода из рекурсии
         return lst                               # выход из рекурсии
     cent = len(lst)//2                           # поиск середины списка
