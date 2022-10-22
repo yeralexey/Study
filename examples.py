@@ -1,3 +1,10 @@
+"""
+Интересные примеры кода.
+
+Составлено для личного пользования и запоминания.
+"""
+
+
 def filter_lst(it, key=None):
     """
         lambda as filter, placed in tuple
