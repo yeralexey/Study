@@ -32,7 +32,7 @@ filt = (lambda y: y < 0,
 # print(*filter_lst(inpt, key=filt[0]))
 # print(*filter_lst(inpt, key=filt[1]))
 # print(*filter_lst(inpt, key=filt[2]))
-print(help(filter_lst))
+# print(help(filter_lst))
 
 
 def input_while_q():

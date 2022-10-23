@@ -1,5 +1,5 @@
 """
-    "Болтовня ничего не стоит. Покажите мне код" (с) Linus Torvalds
+    "Talk is cheap. Show me the code." (с) Linus Torvalds
 
 Декораторы. Интерактивный конспект Python.
 
@@ -7,15 +7,18 @@
 Олега Молчанова   - https://www.youtube.com/watch?v=Ss1M32pp5Ew
 Ивана Викторовича - https://www.youtube.com/watch?v=3WbglY2b65g&list=PLs2IpQwiXpT3SqbqPzLCEy1fow9G7g0oY&index=20
 Сергея Балакирева - https://www.youtube.com/watch?v=v0qZPplzwUQ
+                  - https://youtu.be/bl_CnIVpWmQ
 
-Приведен код из видео, а так же решены задачи темы 7.11 "Декораторы функций" курса "Добрый, добрый Python"
-Сергея Балакирева.
-https://stepik.org/lesson/567062/step/1?unit=561336
+Приведен код из видео, а так же решены задачи тем 7.11 "Декораторы функций", 7.12 "Передача аргументов декораторам"
+курса "Добрый, добрый Python" Сергея Балакирева.
+https://stepik.org/lesson/567062/step/1
+https://stepik.org/lesson/567063/step/1
 
 N.B. Нижеприведенные функции решений задач написаны в процессе и для обучения,
 лично автором конспекта. Они проходят испытания на 22.10.2022, при
 этом могут быть не оптимальными(идеальными) с точки зрения логики алгоритмов.
 """
+
 
 from datetime import datetime
 
@@ -96,6 +99,7 @@ def my_decor(func):
         print('stop')       # после выполнения
     return wrapper          # возврат значения wrapper
 
+
 @my_decor
 def my_func(number):              # основная функция для передачи в декоратор
     print(number**2)              # возведение в квадрат
@@ -116,6 +120,7 @@ def func_decorator(func):
 
     https://stepik.org/lesson/567062/step/1
     """
+
 
     def wraper(*args, **kwargs):          # выполняет блок команд до и после оборачиваемой функции
         print("---  some actions ---")    # вывод до выполнения оборачиваемой функции
@@ -148,6 +153,8 @@ def test_time(func):
 
     https://stepik.org/lesson/567062/step/1
     """
+
+
     def wraper(*args, **kwargs):       # выполняет блок команд до и после оборачиваемой функции
         st = time.time()               # timestamp начала работы
         result = func(*args, **kwargs) # выполнение оборачиваемой функции
@@ -181,6 +188,56 @@ def get_nod_slow(a, b):             # медленный алгорим Евкл
 # res1 = get_nod_slow(2, 1000000) # вариант запуска с указанием декоратора над функцией
 # res2 = get_nod_fast(2, 1000000) # вариант запуска с указанием декоратора над функцией
 # print(res1, res2)               # вывод НОД для запуска с указанием декоратора над функцией
+
+
+from functools import wraps
+import math
+
+
+def df_decorator(dx=0.01): # параметры декоратора передатся через дополнительное вкладывание
+    """
+    Декоратор для вычисления производной функции c передачей параметра декоратора
+
+    Код из видео Сергея Балакирева
+    https://youtu.be/bl_CnIVpWmQ
+
+    https://stepik.org/lesson/567063/step/1
+    """
+    def func_decorator(func):
+        @wraps(func)   # данный дкоратор сохраняет имя оборачиваемой функциии
+        def wrapper(x, *args, **kwargs):
+            res = (func(x + dx, *args, **kwargs) - func(x, *args, **kwargs)) / dx  # вычисление производной
+            return res
+        # wrapper.__name__ = func.__name__      # аналог декоратора @wraps
+        # wrapper.__doc__ = func.__doc__        # аналог декоратора @wraps
+        return wrapper
+    return func_decorator
+
+
+@df_decorator(dx=0.001)
+def sin_df(x):
+    """
+    Описание функции sin_df()
+    :param x: число
+    :return: синус числа
+    """
+    return math.sin(x)
+
+
+
+# print(help(df_decorator))
+# f = df_decorator(dx=0.001)          # вызов без обращения к упоминанию декоратора над функцией(там должен стоять "#")
+# sin_df = f(sin_df)
+# # или
+# f = df_decorator(dx=0.001)(sin_df)  # вызов без обращения к упоминанию декоратора над функцией(там должен стоять "#")
+# или
+
+# df = sin_df(math.pi/3)                # вызов с синтаксическим сахаром
+# print(df)
+# print(sin_df.__name__)                # вывод имени оборачиваемой функции
+# print(sin_df.__doc__)                 # вывод описания оборачиваемой функции
+
+
 
 
 def func_show(func):                    # объявляем функцию декоратор
@@ -238,6 +295,7 @@ def get_menu(s):                  # объявляем функцию
 # inpt = "Главная Добавить Удалить Выйти"   # тестовый ввод
 # get_menu(inpt)                            # вызов (при решении на платформе - не нужен)
 
+
 def sort_inpt(func):
     """
     Сортировка декоратором ввода, преобразованного из строки в список чисел.
@@ -278,6 +336,7 @@ def dict_it(func):
         return  {i: next(it_b) for i in lst_a}        # формируем список генератором, итерируя values
     return wrapper
 
+
 @dict_it
 def get_lists(a, b):              # объявление функции
     return a.split(), b.split()   # преобразование параметров в списки и возврат
@@ -291,10 +350,13 @@ def get_lists(a, b):              # объявление функции
 # d = get_lists(vol1, vol2)           # запуск функции, получение d
 # print(*sorted(d.items()))           # вывод результата согласно заданию
 
+
+
 t = {'ё': 'yo', 'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ж': 'zh',
      'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p',
      'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh',
      'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'}
+
 
 def strip_excess(func):
     """

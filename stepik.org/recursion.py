@@ -1,5 +1,5 @@
 """
-    "Болтовня ничего не стоит. Покажите мне код" (с) Linus Torvalds
+    "Talk is cheap. Show me the code." (с) Linus Torvalds"
 
     Python interactive summary of "Recursive functions" theme,
     course of study "Добрый, добрый Python" by Sergey Balakirev.
