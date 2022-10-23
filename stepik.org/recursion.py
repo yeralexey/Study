@@ -1,23 +1,44 @@
-"""
-    "Talk is cheap. Show me the code." (с) Linus Torvalds"
+def summary():
+    """
+        "Talk is cheap. Show me the code." (с) Linus Torvalds"
 
-    Python interactive summary of "Recursive functions" theme,
-    course of study "Добрый, добрый Python" by Sergey Balakirev.
-    Examples and tasks.
-Интерактивный Python конспект темы "Рекурсивные функции",
-курса "Добрый, добрый Python", от Сергея Балакирева.
-Примеры и задачи.
+        Python interactive summary of "Recursive functions" theme,
+        course of study "Добрый, добрый Python" by Sergey Balakirev.
+        Examples and tasks.
+    Интерактивный Python конспект темы "Рекурсивные функции",
+    курса "Добрый, добрый Python", от Сергея Балакирева.
+    Примеры и задачи.
 
-https://stepik.org/lesson/567058/
+    https://stepik.org/lesson/567058/
 
-N.B. Нижеприведенные функции решений задач написаны в процессе и для обучения,
-лично автором конспекта. Они проходят испытания на 20.10.2022, при
-этом могут быть не оптимальными(идеальными) с точки зрения логики алгоритмов.
-"""
+    N.B. Нижеприведенные функции решений задач написаны в процессе и для обучения,
+    лично автором конспекта. Они проходят испытания на 20.10.2022, при
+    этом могут быть не оптимальными(идеальными) с точки зрения логики алгоритмов.
+
+    1. При запуске конспекта - в консоль выведется оглавление. Расположено в конце кода. Сохраните вывод в отдельный
+       файл, если необходимо. Так же можно поступать и с отдельными функциями, вместе с блоком запуска.
+       Каждый вывод описания функции содержит номер строки, на которой она расположена.
+
+    2. После каждой функции - блок запуска, снимайте комментарии с нужных строк, ставьте на ненужные.
+       Это основной принцип работы с данным конспектом.
+
+    3. В описаниях функций есть ссылки на источники.
+
+    4. Конспект дополняется.
+
+    5. Все названия сохранены как в источнике, импорты перед функциями, для полноты контекста. Поэтому PEP 8 ругается.
+
+
+
+
+
+    """
+    pass
 
 
 def recursive(value):
     """
+    39
         example of the way recursive funtion works
     Пример работы рекурсивной функции.
     https://youtu.be/dtzoBXL11oo?t=36 (with timecode,  с привязкой ко времени)
@@ -31,8 +52,13 @@ def recursive(value):
     print(value)            # выводим значение
 
 
+# help(recursive)  # вывод описания функции
+# recursive(1)  # вызов функции
+
+
 def fact(n):
     """
+    59
         counting factorial with recursive function
     вычисление факториала рекурсивной функцией
     https://youtu.be/dtzoBXL11oo?t=345 (with timecode,  с привязкой ко времени)
@@ -44,6 +70,10 @@ def fact(n):
         return 1             # выход из функции
     else:
         return n*fact(n-1)   # рекурсивно запускаем подсчет
+
+
+# help(fact)                              # вывод описания функции
+# print(fact(6))                          # вывод результата функции
 
 
 F = {
@@ -63,6 +93,7 @@ F = {
 def get_files(path, depth=0):  # получаем путь, в нашем случае - словарь, ключевым параметром задано
                                # количество пробелов при отображении глубины вложенности
     """
+    93
         Creatitng and print file tree with recursive function,
         tree is set by dictionary, named "F", before this function.
     Создание и вывод дерева файлов рекурсивной функцией, пример дерева
@@ -80,8 +111,13 @@ def get_files(path, depth=0):  # получаем путь, в нашем слу
             print(" " * (depth + 1), " ".join(path[f]))  # если не словарь - выводим с увеличением отступа
 
 
+# help(get_files)                         # вывод описания функции
+# get_files(F)                            # вызов функции
+
+
 def get_rec_N(N):
     """
+    118
         Print numbers from one to "N" with recursive function.
     Вывести числа от единицы до "N" рекурсивной функцией.
     https://stepik.org/lesson/567058/step/3
@@ -94,8 +130,15 @@ def get_rec_N(N):
         print(N)           # выводим значение, углубляясь в рекурсию
 
 
+# help(get_rec_N)                                # вывод описания функции
+# N = int(input())                               # ввод с клавиатуры
+# N = 8                                          # ввод тестового значения
+# get_rec_N(N)                                   # вызов функции
+
+
 def get_rec_sum(inpt, total):
     """
+    139
         Count inputed with string numbers with recursive function, print after.
     Сосчитать рекурсивной функцией сумму введенных строкой чисел, после вывести.
     https://stepik.org/lesson/567058/step/4
@@ -111,8 +154,16 @@ def get_rec_sum(inpt, total):
         return total                       # возвращаем результат
 
 
+# help(get_rec_sum)                              # вывод описания функции
+# inpt = input()                                 # ввод с клавиатуры
+# inpt = '8 11 -5 4 3'                           # ввод тестового значения
+# inpt = iter([i for i in inpt.split()]+[1])     # преобразование в итератор
+# print(get_rec_sum(inpt, 0))                    # вывод результата функции
+
+
 def fib_rec(N, f=[1, 1]):  # ключевым параметром задаем первые два элемента последовательности
     """
+    164
         Create Fibonacci sequence, with total values, limited by input number.
     Сформировать последовательность Фибоначчи, количество значений в которой
     лимитировано вводимым натруральным числом.
@@ -128,8 +179,15 @@ def fib_rec(N, f=[1, 1]):  # ключевым параметром задаем 
         return f
 
 
+# help(fib_rec)                                  # вывод описания функции
+# N = int(input())                               # ввод с клавиатуры
+# N = 14                                         # ввод тестового значения
+# print(fib_rec(N))                              # вывод результата функции
+
+
 def fact_rec(n):
     """
+    188
         Counting factorial with recursive function.
     Вычисление факториала рекурсивной функцией.
     https://youtu.be/dtzoBXL11oo?t=345 (with timecode,  с привязкой ко времени)
@@ -144,11 +202,18 @@ def fact_rec(n):
         return n*fact_rec(n-1)  # рекурсивно запускаем подсчет
 
 
+# help(fact_rec)                                 # вывод описания функции
+# n = int(input())                               # ввод с клавиатуры
+# n = 11                                         # ввод тестового значения
+# print(fact_rec(n))                             # вывод результата функции
+
+
 d = [1, 2, [True, False], ["Москва", "Уфа", [100, 101], ['True', [-2, -1]]], 7.89]
 
 
 def get_line_list(d, a=[]):
     """
+    214
         Create one demention list from multidementional, given in "d" with recursive function.
     Рекурсивной функцей создать одномерный список из значений элементов списка "d", задан
     перед этой функцией.
@@ -165,8 +230,13 @@ def get_line_list(d, a=[]):
     return a                                 # вернуть результат
 
 
+# help(get_line_list)                            # вывод описания функции
+# print(get_line_list(d))                        # вывод результата функции
+
+
 def get_path(N, f=[1, 2]):  # ключевым параметром задаем значения первых двух элементов
     """
+    237
         Cout amount of steps to get to "N" with recursive function, if possible
         steps are 1 and 2.
     "Лягушка прыгает вперед и может скакнуть либо на одно деление, либо сразу на два.
@@ -184,8 +254,15 @@ def get_path(N, f=[1, 2]):  # ключевым параметром задаем
         return f[-1]                   # возвращаем значение последнего элемента
 
 
+# help(get_path)                                 # вывод описания функции
+# N = int(input())                               # ввод с клавиатуры
+# N = 7                                          # ввод тестового значения
+# print(get_path(N))                             # вывод результата функции
+
+
 def sort_merg(lst):
     """
+    263
         Implement merge sorting with recursive function.
     Реализовать сортировку слиянием через рекурсивную функцию.
     https://stepik.org/lesson/567058/step/10
@@ -210,66 +287,23 @@ def combine_lst(lst_a, lst_b, comb):
     else:
         return comb                                 # возвращаем комбинированый список
 
-
-# ---------------------------------------------------------------
-
-
-'''
-Uncomment needed and run, works with "help" also, ex.: help(get_files)
-
-Раскомментируйте нужное и запускайте, работает запуск с "help", прим.: help(get_files)
-'''
-
-# # --- Пример 1
-recursive(1)                            # вызов функции
-help(recursive)                         # вывод описания функции
-
-# # --- Пример 2
-print(fact(6))                          # вывод результата функции
-help(fact)                              # вывод описания функции
-
-# # --- Пример 3
-get_files(F)                            # вызов функции
-help(get_files)                         # вывод описания функции
+# help(sort_merg)                                # вывод описания функции
+# lst = [int(i) for i in input().split()]        # ввод с клавиатуры
+# lst = [8, 11, -6, 3, 0, 1, 1]                  # ввод тестового значения
+# print(print(*sort_merg(lst)[::-1]))            # вывод результата функции
 
 
-# # --- Задача 1
-# N = int(input())                             # ввод с клавиатуры
-N = 8                                          # ввод тестового значения
-get_rec_N(N)                                   # вызов функции
-help(get_rec_N)                                # вывод описания функции
+# Оглавление
 
-# #--- Задача 2
-# inpt = input()                               # ввод с клавиатуры
-inpt = '8 11 -5 4 3'                           # ввод тестового значения
-inpt = iter([i for i in inpt.split()]+[1])     # преобразование в итератор
-print(get_rec_sum(inpt, 0))                    # вывод результата функции
-help(get_rec_sum)                              # вывод описания функции
+help(summary)
 
-# #--- Задача 3
-# N = int(input())                             # ввод с клавиатуры
-N = 14                                         # ввод тестового значения
-print(fib_rec(N))                              # вывод результата функции
-help(fib_rec)                                  # вывод описания функции
-
-# # --- Задача 4
-# n = int(input())                             # ввод с клавиатуры
-n = 11                                         # ввод тестового значения
-print(fact_rec(n))                             # вывод результата функции
-help(fact_rec)                                 # вывод описания функции
-
-# # --- Задача 5
-print(get_line_list(d))                        # вывод результата функции
-help(get_line_list)                            # вывод описания функции
-
-# # --- Задача 6                               # подходит решение с Фибоначчи
-# N = int(input())                             # ввод с клавиатуры
-N = 7                                          # ввод тестового значения
-print(get_path(N))                             # вывод результата функции
-help(get_path)                                 # вывод описания функции
-
-# # --- Задача 7                               #
-# # lst = [int(i) for i in input().split()]    # ввод с клавиатуры
-lst = [8, 11, -6, 3, 0, 1, 1]                  # ввод тестового значения
-print(print(*sort_merg(lst)[::-1]))            # вывод результата функции
-help(sort_merg)                                # вывод описания функции
+help(recursive)
+help(fact)
+help(get_files)
+help(get_rec_N)
+help(get_rec_sum)
+help(fib_rec)
+help(fact_rec)
+help(get_line_list)
+help(get_path)
+help(sort_merg)
