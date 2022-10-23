@@ -7,7 +7,9 @@
 
 def filter_lst(it, key=None):
     """
-        lambda as filter, placed in tuple
+    Функция типа lambda как фильтр, список фильтров помещен в кортеж, для демострации
+    возможности подобного.
+
     https://stepik.org/lesson/567059/step/7
     """
     if key is None:
@@ -35,11 +37,11 @@ print(help(filter_lst))
 
 def input_while_q():
     """
-        input while not input ic exact needed, with iter()
     Пользователь с клавиатуры вводит названия городов, пока не введет букву q.
     Определить общее уникальное число городов, которые вводил пользователь. На
     экран вывести это число. Из коллекций при реализации программы использовать
     только множества.
+
     https://stepik.org/lesson/567049/step/9?thread=solutions&unit=561323
     https://stepik.org/lesson/567049/step/9
     """
@@ -48,3 +50,21 @@ def input_while_q():
 # input_while_q()
 help(input_while_q)
 
+
+def show_sorted(func):
+    """
+    Пример декоратора с использованием вложенной lambda функции, взято из задачи
+    по созданию декоратора для возрата отсортированного списка, решение
+    by Алекс Глозман.
+
+    https://stepik.org/lesson/567062/step/4?thread=solutions&unit=561336
+
+    """
+    return lambda *args, **kwards: sorted(func(*args, **kwards))
+
+@show_sorted
+def get_list(s):
+    return list(map(int, s.split()))
+
+# print(*get_list("8 11 -5 4 3 10"))
+help(show_sorted)
