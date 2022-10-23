@@ -189,7 +189,7 @@ def get_nod_slow(a, b):             # медленный алгорим Евкл
 # print(res1, res2)               # вывод НОД для запуска с указанием декоратора над функцией
 
 
-from functools import wraps
+from functools import wraps    # импорт дублируется в конспекте, но по условиям задачи
 import math
 
 
