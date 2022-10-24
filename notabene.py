@@ -42,7 +42,6 @@ def input_while_q():
     экран вывести это число. Из коллекций при реализации программы использовать
     только множества.
 
-    https://stepik.org/lesson/567049/step/9?thread=solutions&unit=561323
     https://stepik.org/lesson/567049/step/9
     """
     print(len(set(iter(input, 'q'))))
@@ -56,9 +55,9 @@ def show_sorted(func):
     """
     Пример декоратора с использованием вложенной lambda функции, взято из задачи
     по созданию декоратора для возрата отсортированного списка, решение
-    by Алекс Глозман.
+    by @Алекс_Глозман.
 
-    https://stepik.org/lesson/567062/step/4?thread=solutions&unit=561336
+    https://stepik.org/lesson/567062/step/4
 
     """
     return lambda *args, **kwards: sorted(func(*args, **kwards))
@@ -91,3 +90,28 @@ def open_close_file():
 
 # help(open_close_file)
 # open_close_file()
+
+
+def lambda_input():
+    """
+    Получение ввода функцией lambda c одновременным присвоением значения переменной a. В данной lambda
+    происходит генерация кубов модулей чисел в диапазоне от -a < -a+4 с последующим выводном в
+    консоль. Присвоение происходит в дополнительных скобках к lambda, сама lambda тоже в них. Т.е. общая форма:
+    (lambda a: <do smth with a>)(<this is a>). Решение by
+    @Irina_I
+
+    https://stepik.org/lesson/567071/step/7
+    """
+    (lambda a: print(*(abs(x) ** 3 for x in range(-a, -a + 4))))(int(input()))
+
+
+# help(lambda_input)
+# lambda_input()
+
+
+def gen_lowercase():
+    """
+    Генерация последователности сочетаний букв из ascii_lowercase, с выводом четрех из них в консоль. На основании
+    решения выше.
+
+    """
