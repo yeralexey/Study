@@ -12,27 +12,27 @@ def filter_lst(it, key=None):
 
     https://stepik.org/lesson/567059/step/7
     """
-    if key is None:
-        return tuple(it)
-    res = ()
-    for x in it:
-        if key(x):
-            res += (x,)
+    if key is None:      # если функция вызвана без передачи lambda фильтра
+        return tuple(it) # вернуть кортеж из данных в параметре it
+    res = ()             # объявляем пустой кортеж
+    for x in it:         # для каждого элемента объекта из параметра it
+        if key(x):       # если lambda в параметре key возвращает True
+            res += (x,)  # новый кортеж из старого сложенный с данным элементом
     return res
 
 
-filt = (lambda y: y < 0,
+filt = (lambda y: y < 0,         # для y в lambda, если y меньше ноля...
         lambda y: y >= 0,
         lambda y: 3 <= y <= 5)
 
-# # inpt = input()
+
+# help(filter_lst)
 # inpt = '5 4 -3 4 5 -24 -6 9 0'
 # inpt = [int(i) for i in inpt.split()]
 # print(*filter_lst(inpt))
 # print(*filter_lst(inpt, key=filt[0]))
 # print(*filter_lst(inpt, key=filt[1]))
 # print(*filter_lst(inpt, key=filt[2]))
-# print(help(filter_lst))
 
 
 def input_while_q():
@@ -47,8 +47,9 @@ def input_while_q():
     """
     print(len(set(iter(input, 'q'))))
 
+
+# help(input_while_q)
 # input_while_q()
-help(input_while_q)
 
 
 def show_sorted(func):
@@ -66,5 +67,27 @@ def show_sorted(func):
 def get_list(s):
     return list(map(int, s.split()))
 
+
+# help(show_sorted)
 # print(*get_list("8 11 -5 4 3 10"))
-help(show_sorted)
+
+
+def open_close_file():
+    """
+    Конструкция для работы с файлом, максимально учитывающая безопасность
+    работы с данными от Сергея Балакирева.
+
+    https://youtu.be/tM5qE8YLLuo
+    """
+    try:
+        with open("my_file.txt", encoding="utf-8") as file: # открытие на чтение, или...
+            s = file.readlines()                            # чтение построчно, или...
+            int(s)                                          # имитация ошибки
+    except FileNotFoundError:                               # обработка изключения "файл не найден"
+        print("Невозможно открыть файл")
+    except:
+        print("Ошибка при работе с файлом")
+
+
+# help(open_close_file)
+# open_close_file()
