@@ -3,7 +3,7 @@ Personal summaries and learning.
 
 "main.py" -  is "work in exact moment" file, so mostly is not informative. 
 
-Check folders, comments in russian mostly. 
+Check folders, comments in russian, nearly all. 
 
 "notabene.py" - contains interesting for me examples i wish to keep in mind.
 
