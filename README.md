@@ -1,11 +1,11 @@
 # Study
-Рersonal summaries and learning. 
+Personal summaries and learning. 
 
 "main.py" -  is "work in exact moment" file, so mostly is not informative. 
 
-Check folders, comments in rusian mostly. 
+Check folders, comments in russian mostly. 
 
-"notabene.py" - contains interestig for me examples i wish to keep in mind.
+"notabene.py" - contains interesting for me examples i wish to keep in mind.
 
 __
 
