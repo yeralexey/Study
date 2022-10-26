@@ -196,8 +196,8 @@ def sorted_sort_exaple():
     tp_lst = tuple(sortanyway(tp_lst))
     print(tp_lst)            # тестовый вывод после
 
-help(sorted_sort_exaple)
-sorted_sort_exaple()
+# help(sorted_sort_exaple)
+# sorted_sort_exaple()
 
 
 # Оглавление
