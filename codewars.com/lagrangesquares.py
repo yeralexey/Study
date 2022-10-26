@@ -53,7 +53,7 @@ def four_squares(n: int) -> Tuple[int, int, int, int]:
                     if millerrabin(b_left) == True:
                         cd = doFerma(b_left)
                         if cd != False:
-                            return a, b, cd[0], cd[1]
+                            return a, b, cd[0], cd[1], n
         else:
             c = math.isqrt(left)
             c2 = c * c
