@@ -157,7 +157,6 @@ def gen_lowercase():
 
 
 def sorted_sort_exaple():
-    import traceback  # https://docs.python.org/3/library/traceback.html?highlight=traceback#module-traceback
     """
     Функция демонстрирует весь процесс преобразования данных методом .sort() и функцией sorted().
     Если раскомментированы тестовый ввод и выводы данных и закомментирован ввод с клавиатуры
@@ -169,6 +168,8 @@ def sorted_sort_exaple():
     https://github.com/yeralexey/Study/blob/master/notabene.py
 
     """
+    import traceback  # https://docs.python.org/3/library/traceback.html?highlight=traceback#module-traceback
+
     s = "-2 -1 8 11 4 5"                 # тестовый ввод
     # s = input()                          # ввод с клавиатуры
 
@@ -196,8 +197,31 @@ def sorted_sort_exaple():
     tp_lst = tuple(sortanyway(tp_lst))
     print(tp_lst)            # тестовый вывод после
 
+
 # help(sorted_sort_exaple)
 # sorted_sort_exaple()
+
+
+def mask_sort():
+    """
+    Пример сортирвки маской, на основании задания
+
+    https://stepik.org/lesson/567077/step/6
+
+    полный конспект темы:
+    https://github.com/yeralexey/Study/blob/master/notabene.py
+    """
+    lst_in = ['Атос=лейтенант', 'Портос=прапорщик', "д'Артаньян=капитан",
+              'Арамис=лейтенант', 'Балакирев=рядовой']       # тестовый ввод
+    mask = ['рядовой', 'сержант', 'старшина', 'прапорщик', 'лейтенант',
+            'капитан', 'майор', 'подполковник', 'полковник'] # маска, при обращении к которой возвращается индекс
+    lst = [i.split("=") for i in lst_in]      # формируем список согласно задания
+    lst.sort(key=lambda x: mask.index(x[1]))  # обращаемся к маске, получаем индекс значимости для сортировки
+    return lst
+
+
+# help(mask_sort)
+# print(mask_sort())
 
 
 # Оглавление
@@ -211,3 +235,4 @@ help(open_close_file)
 help(lambda_input)
 help(gen_lowercase)
 help(sorted_sort_exaple)
+help(mask_sort)
