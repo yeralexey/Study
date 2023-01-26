@@ -1,7 +1,7 @@
 Simple template for Telegram bot. Mostly for personal use.
 
 
-```
+<i>
 Current issue can be checked: http://t.me/PyrogramTemplateBot #if my server is fine 😄
 Not sure, that everything is well structured and easy to get, but it works for me.
 
@@ -14,7 +14,7 @@ Sqlitedict  https://github.com/RaRe-Technologies/sqlitedict # for sqlite managin
 
 and others, of course, including dependencies, so my gratefulness to all authors,
 developers, for their will to make the world a better place to live.
-```
+</i>
 
 
 
