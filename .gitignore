@@ -6,6 +6,5 @@
 *.db
 *.csv
 *.log
-*.txt
 *.session
 *.session-journal
