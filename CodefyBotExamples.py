@@ -57,8 +57,8 @@ print(get_city_name())
 
 
 #checks if Tic-Tac_Toe solved.
-# Receive board 3x3 array, value is 0 if empty, 1 if it is "X", or 2 if it is an "O" .
-# Return -1 if board not finished AND no one has won, 1 if "X" won, 2 if "O" won, 0 if it's a cat's. Name is_solved
+#Receive board 3x3 array, value is 0 if empty, 1 if it is "X", or 2 if it is an "O" .
+#Return -1 if board not finished AND no one has won, 1 if "X" won, 2 if "O" won, 0 if it's a cat's. Name is_solved
 
 
 def is_solved(board):
