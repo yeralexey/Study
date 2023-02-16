@@ -1,14 +1,20 @@
-import requests
+### <your text>
+# Code:
+
+### Write function on Python 3 that creates 1000 different random city names in list, getting cities name from internet.
+# Code:
+
 import random
+import requests
+import json
 
-def random_city_name():
-    city_name = []
+def get_city_name():
+    url = 'https://randomuser.me/api/?results=1000'
+    response = requests.get(url)
+    data = json.loads(response.text)
+    cities = []
     for i in range(1000):
-        city_name.append(random.choice(requests.get('https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json').json()))
-    return city_name
+        cities.append(data['results'][random.randint(0, len(data['results'])-1)]['location']['city'])
+    return cities
 
-random_city_name()
-
-for i in random_city_name():
-    if len(i['city']) == 3:
-        print(i['city'])
+print(get_city_name())
