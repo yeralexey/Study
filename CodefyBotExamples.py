@@ -98,3 +98,63 @@ board = [[1, 2, 1],
          [2, 1, 2],
          [2, 1, 2]]
 print(is_solved(board))
+
+
+"""
+Roman Numerals, https://www.codewars.com/kata/51b66044bce5799a7f000003/
+"""
+class RomanNumerals:
+    def to_roman(n):
+        roman = ''
+        while n >= 1000:
+            roman += 'M'
+            n -= 1000
+        while n >= 900:
+            roman += 'CM'
+            n -= 900
+        while n >= 500:
+            roman += 'D'
+            n -= 500
+        while n >= 400:
+            roman += 'CD'
+            n -= 400
+        while n >= 100:
+            roman += 'C'
+            n -= 100
+        while n >= 90:
+            roman += 'XC'
+            n -= 90
+        while n >= 50:
+            roman += 'L'
+            n -= 50
+        while n >= 40:
+            roman += 'XL'
+            n -= 40
+        while n >= 10:
+            roman += 'X'
+            n -= 10
+        while n >= 9:
+            roman += 'IX'
+            n -= 9
+        while n >= 5:
+            roman += 'V'
+            n -= 5
+        while n >= 4:
+            roman += 'IV'
+            n -= 4
+        while n >= 1:
+            roman += 'I'
+            n -= 1
+        return roman
+    def from_roman(roman):
+        roman_numerals = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
+        result = 0
+        for i, c in enumerate(roman):
+            if (i + 1) == len(roman) or roman_numerals[c] >= roman_numerals[roman[i+1]]:
+                result += roman_numerals[c]
+            else:
+                result -= roman_numerals[c]
+        return result
+
+print(RomanNumerals.to_roman(1000)) # should return 'M'
+print(RomanNumerals.from_roman('M')) # should return 1000
