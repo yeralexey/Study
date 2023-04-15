@@ -166,7 +166,6 @@ def sorted_sort_exaple():
 
     полный конспект темы:
     https://github.com/yeralexey/Study/blob/master/notabene.py
-
     """
     import traceback  # https://docs.python.org/3/library/traceback.html?highlight=traceback#module-traceback
 
@@ -224,6 +223,77 @@ def mask_sort():
 # print(mask_sort())
 
 
+def speed_limit_if_else_example(speed, speed_limit):
+    """
+    Функция для определения штрафа за превышение скорости с использованием условных операторов if-else. Демонстрирует
+    классический подход в решении задач с множественными условиями. В следующей после данной функции приведен пример
+    решения этой же задачи без использования if-else вообще.
+
+    Args:
+        speed (int): Скорость автомобиля.
+        speed_limit (int): Ограничение скорости.
+
+    Returns:
+        int/str: Возвращает величину штрафа в случае превышения скорости или строку "it's ok", если скорость допустима.
+
+    полный конспект темы:
+    https://github.com/yeralexey/Study/blob/master/notabene.py
+    """
+
+    if speed_limit < speed <= speed_limit + 10:
+        fee = 100
+    elif speed_limit + 10 < speed <= speed_limit + 20:
+        fee = 200
+    elif speed_limit + 20 < speed:
+        fee = 500
+    else:
+        fee = "it's ok"
+
+    return fee
+
+
+# help(speed_limit_if_else_example)
+# print(speed_limit_if_else_example(speed=150, speed_limit=120))
+
+
+def speed_limit_no_if_else_example(speed, speed_limit):
+    """
+    Функция для определения штрафа за превышение скорости без условных операторов if-else,
+    используя словарь в качестве условий. Подобный подход встречаетмя в объектно-ориентированном программировании.
+    Иногда можно столкнуться с тем, что в требованиях к коду прописано обязательное условие о том, что конструкции
+    if-else не допустимы к применению.
+
+    Логика приведенной конструкции в том, что условие используется в качестве ключа к словарю,
+    и при внесении в словарь принимает булево значение True или False. Все дублирующиеся ключи перезаписываются
+    поверх предыдущих, в результате остается словарь всего из двух элементов, с ключами True и False, далее происходит
+    обращение к значению элемента с ключом True и его возврат.
+
+
+    Args:
+        speed (int): Скорость автомобиля.
+        speed_limit (int): Ограничение скорости.
+
+    Returns:
+        int/str: Возвращает величину штрафа в случае превышения скорости или строку "it's ok", если скорость допустима.
+
+    полный конспект темы:
+    https://github.com/yeralexey/Study/blob/master/notabene.py
+    """
+
+    rule_condition = {
+        speed < speed_limit: "it's ok",
+        speed_limit < speed <= speed_limit + 10: 100,
+        speed_limit + 10 < speed <= speed_limit + 20: 200,
+        speed_limit + 20 < speed: 500
+    }
+    return rule_condition[True]
+
+
+# help(speed_limit_no_if_else_example)
+# print(speed_limit_no_if_else_example(speed=150, speed_limit=120))
+
+
+
 # Оглавление
 
 help(summary)
@@ -236,3 +306,5 @@ help(lambda_input)
 help(gen_lowercase)
 help(sorted_sort_exaple)
 help(mask_sort)
+help(speed_limit_if_else_example)
+help(speed_limit_no_if_else_example)
